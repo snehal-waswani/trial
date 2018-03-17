@@ -1,0 +1,25 @@
+/*header css*/
+
+.menu
+{
+background-color: black;
+border-bottom: 4px solid white;
+width:100%;
+height: auto;
+padding: 0 10px;
+position: relative;
+margin: 0px;
+}
+
+.menu  .navbar-nav >  li >  a
+{
+font-size: 18px;
+color: white;
+padding: 20px 35px;
+
+}
+.menu  .navbar-nav >  li >  a:hover
+{
+background-color: grey;
+}
+

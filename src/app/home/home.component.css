@@ -1,0 +1,17 @@
+#background
+{
+    
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 550px;
+}
+
+.container
+{
+    padding: 100px;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    font-size: 28px;
+    color: black;
+    font-weight: 100;
+}
