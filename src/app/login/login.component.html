@@ -1,15 +1,15 @@
 <div>
     <app-header></app-header>
     <div ng-controller="logincontrol">
-        <form id="form">
+        <form id="form" action="">
             <div class="login">
                 <div id="data" class="input-group">
                     <span class="input-group-addon" ><i class="fa fa-user" aria-hidden="true"></i> </span>
-                    <input type="text" class="form-control" name="username" placeholder="Username" ng-model="newdata.username" required="required">  
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" ng-model="newdata.username" required="required">  
                 </div>
                 <div id="data" class="input-group">
                     <span class="input-group-addon" ><i class="fa fa-lock" aria-hidden="true"></i> </span>
-                    <input type="password" class="form-control" name="password" placeholder="Password" ng-model="newdata.password" required="required">  
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="newdata.password" required="required">  
                 </div>
              
             <input type="submit" value="Log In" on-click="submitform()">

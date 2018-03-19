@@ -28,22 +28,25 @@ export class LoginComponent implements OnInit {
   }
 
   submitform() {
-    var user = document.getElementsByName("username")[0].value;
-    var pass = document.getElementsByName("password")[0].value;
-    console.log("i'm here");
-    console.log(user);
-    console.log(pass);
-    let url =  "http://192.168.43.44:8090/login/validate?username=dumb&password=password";
-    /*this.http.get(url).subscribe(res => {
-      console.log(res.text())
-      var data=res.text();
-      if(data == "true")
+    var user = (document.getElementById("username") as HTMLInputElement).value;
+    var pass = (document.getElementById("password") as HTMLInputElement).value;
+  
+    let url =  "http://192.168.43.139:8082/login/validate?username="+user+"&password="+pass;
+     this.http.get(url).subscribe(res => {
+      //console.log(res.text())
+      //var data=res.text();
+      if(res.text() == "true")
       {
-
+        	window.location.href = "http://localhost:4200/home/markets";
       }
-    });*/
+      else
+      {
+        window.location.href = "http://localhost:4200/home/login";
+        alert ("Username or Password is incorrect.");
+      }
+    });
     
-    console.log('Now Im not')
+    //console.log('Now Im not')
     //console.log(this.http.get(url));
      //.map((res: Response) => res.json); 
   }
