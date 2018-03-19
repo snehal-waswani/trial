@@ -14,32 +14,44 @@ import 'rxjs/add/operator/do';
   styleUrls: ['./capselect.component.css']
 })
 export class CapselectComponent implements OnInit {
+  large: any[];
+  mid: any[];
+  small: any[];
+  columns: string[];
 
-  constructor(private http: Http) {
-
-  }
-
+  constructor(private http: Http) {}
   ngOnInit() {
+    this.columns = this.getColumns();
+    this.lclicked();
   }
   
  
-  lclicked()
-  {
-    let url =  "http://192.168.43.139:8082/login/validate?username=abc123@gmail.com&password=abc123";
-     this.http.get(url).subscribe(res => {
-      //console.log(res.text())
-      //var data=res.text();
-      if("true" == "true")
-      {
-        	window.location.href = "http://localhost:4200/home/markets";
-      }
-      else
-      {
-        window.location.href = "http://localhost:4200/home/login";
-        alert ("Username or Password is incorrect.");
-      }
+  lclicked() {
+    let url =  "http://192.168.0.12:8082/populate-stocks/view-large-cap";
+    this.http.get(url).subscribe(r => {
+      this.large = r.json();
+      console.log(this.large);
     });
   }
 
-  
+  mclicked() {
+    let url =  "http://192.168.0.12:8082/populate-stocks/view-mid-cap";
+    this.http.get(url).subscribe(r => {
+      this.mid = r.json();
+      console.log(this.mid);
+    });
+  }
+
+  sclicked() {
+    let url =  "http://192.168.0.12:8082/populate-stocks/view-small-cap";
+    this.http.get(url).subscribe(r => {
+      this.small = r.json();
+      console.log(this.small);
+    });
+  }
+
+  getColumns(): string[]{
+    return ["companyName", "open", "high", "low", "close","volume","percentChange"];
+  }
 }
+
