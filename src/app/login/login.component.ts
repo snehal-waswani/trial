@@ -31,10 +31,10 @@ export class LoginComponent implements OnInit {
     var user = (document.getElementById("username") as HTMLInputElement).value;
     var pass = (document.getElementById("password") as HTMLInputElement).value;
   
-    let url =  "http://192.168.43.139:8082/login/validate?username="+user+"&password="+pass;
+    let url =  "http://192.168.0.12:8082/login/validate?username="+user+"&password="+pass;
      this.http.get(url).subscribe(res => {
       //console.log(res.text())
-      //var data=res.text();
+      var data=res.text();
       if(res.text() == "true")
       {
         	window.location.href = "http://localhost:4200/home/markets";
@@ -51,4 +51,3 @@ export class LoginComponent implements OnInit {
      //.map((res: Response) => res.json); 
   }
 }
-
