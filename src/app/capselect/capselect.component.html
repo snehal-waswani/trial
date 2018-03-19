@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
-        <div id="data" class="input-group">
+        <div id="data" class="input-group" ng-controller="getcontroller">
             <button ng-click="lclicked()">Large Cap</button>
             <button ng-click="mclicked()">Mid Cap</button>
             <button ng-click="sclicked()">Small Cap</button>
@@ -10,6 +10,36 @@
     </div>
 
     <div class="col-sm-9">
+      <div ng-hide="hideme">
+          <p>Select a Cap to see Top 5 companies.</p>
+      </div>
+      
+      <div ng-show="showme">
+          <p>Top 5 companies.</p>
+          <div class="table-responsive" ng-if="listCustomers.length" >
+              <table class="table table-bordered table-hover">
+                <tr>
+                  <th>Company Name</th>
+                  <th>Opening value</th>
+                  <th>High value</th>
+                  <th>Low value</th>
+                  <th>Closing value</th>
+                  <th>Volume</th>
+                  <th>Change</th>
+                </tr>
+                <tr ng-repeat="cust in listCustomers | orderBy : 'name'"
+                  ng-class-even="'info'" ng-class-odd="'success'">
+                  <td>{{ cust.company_name | uppercase}}</td>
+                  <td>{{ cust.open}}</td>
+                  <td>{{ cust.high}}</td>
+                  <td>{{ cust.low}}</td>
+                  <td>{{ cust.close}}</td>
+                  <td>{{ cust.volume}}</td>
+                  <td>{{ cust.change}}</td>
+                </tr>
+              </table>
+             </div>
+      </div>
     </div>
   </div>
 </div>

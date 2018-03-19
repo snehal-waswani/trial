@@ -17,7 +17,7 @@ export const router: Routes = [
         path: 'home/markets',component : CapselectComponent
     },
     {
-        path: 'home/saved_stocks',component : HomeComponent
+        path: 'home/saved_stocks',redirectTo :'home'
     },
     {
         path: 'home',component : HomeComponent

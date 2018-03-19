@@ -8,7 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { Header1Component } from './header1/header1.component';
 import { CapselectComponent } from './capselect/capselect.component';
-
+import { HttpModule} from '@angular/http';
+import {JsonpModule, Jsonp, Response} from '@angular/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { CapselectComponent } from './capselect/capselect.component';
   ],
   imports: [
     BrowserModule,
-    routes
+    routes,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
